@@ -12,9 +12,12 @@ import "github.com/gowithrain/pool"
 
 pool.Conn is a interface and include Close methond.
 
-	type Conn interface {
-		Close() error
-	}
+```go
+type Conn interface {
+	Close() error
+}
+```
+
 	
 ## Example
 
