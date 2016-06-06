@@ -22,8 +22,16 @@ type Conn interface {
 ## Example
 
 ```go
+
+package main
+
+import (
+	"github.com/gowithrain/pool"
+	"net"
+	"time"
+)
+
 // in main func
-	
 func main() {
 	newf := func() (pool.Conn, error) {
 		return net.DialTimeout("tcp", "127.0.0.1:8000", time.Duration(1000)*time.Millisecond)
@@ -45,7 +53,7 @@ func main() {
 	}
 	
 	buf := make([]byte, 10)
-	n, err := c.Read(buf)
+	_, err = c.Read(buf)
 	if err != nil {
 		conn.MarkUseless()
 		return
